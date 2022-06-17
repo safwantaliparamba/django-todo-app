@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ToDo App</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Todo List</h1>
+            <div class="todo-wrapper">
+                <h1>Things to be done</h1>
+                {% for todo in todos %}
+                <div class="todo-item-wrapper">
+                    <form
+                        action="{% url 'todo:completed_todo' todo.id %} "
+                        method="post"
+                    >
+                        {% csrf_token %}
+                        <button>
+                            <span class="round"></span>
+                        </button>
+                    </form>
+                    <h4>{{todo.task}}</h4>
+                    <form
+                        action="{% url 'todo:delete_todo' todo.id %}"
+                        method="post"
+                    >
+                        {% csrf_token %}
+                        <button>
+                            <img
+                                src="{% static 'images/delete.svg' %}"
+                                alt=""
+                            />
+                        </button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="input-wrapper">
+                <form action="{% url 'todo:add_new' %}" method="post">
+                    {% csrf_token %}
+                    <label for="addTodo">
+                        <img src="{% static 'images/plus.svg' %}" alt="" />
+                    </label>
+                    <input
+                        type="text"
+                        name="todo"
+                        id="addTodo"
+                        placeholder="Type new task..."
+                    />
+                    <button class="submit">Add New</button>
+                </form>
+            </div>
+            <div class="completed-todo-wrapper">
+                <h1>Completed</h1>
+                {% for todo in completed_todos %}
+                <div class="wrapper">
+                    <span class="tick-wrapper">
+                        <img
+                            src="{% static 'images/tick-green.svg' %}"
+                            alt=""
+                        />
+                    </span>
+                    <h4>{{todo.task}}</h4>
+                    <form
+                        action="{% url 'todo:revert_completed_todo' todo.id %} "
+                        method="post"
+                    >
+                    {% csrf_token %}
+                        <button>
+                            <img
+                                src="{% static 'images/revert.svg' %}"
+                                alt=""
+                                class="revert"
+                            />
+                        </button>
+                    </form>
+                    <form
+                        action="{% url 'todo:delete_completed_todo' todo.id %}"
+                        method="post"
+                    >
+                        {% csrf_token %}
+                        <button>
+                            <img
+                                src="{% static 'images/delete.svg' %}"
+                                alt=""
+                                class="delete"
+                            />
+                        </button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

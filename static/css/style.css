@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #99939338;
+    text-align: center;
+    padding: 2rem 0;
+}
+.wrapper > h1 {
+    font-size: 40px;
+}
+.todo-wrapper {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+}
+.todo-wrapper > h1 {
+    color: #142266;
+}
+.todo-item-wrapper {
+    width: 90%;
+    height: 55px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.todo-item-wrapper span.round {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #142266;
+    position: absolute;
+    cursor: pointer;
+}
+.todo-item-wrapper h4 {
+    margin-left: 40px;
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 30px;
+}
+.todo-item-wrapper img {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+.input-wrapper {
+    border: 1px solid #212121;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    border-right: none;
+    border-radius: 0 10px 10px 0;
+}
+.input-wrapper img {
+    outline: none;
+    position: absolute;
+    left: 15px;
+    top: 20px;
+}
+.input-wrapper input {
+    border: none;
+    padding: 10px 20px;
+    width: 71%;
+    font-size: 19px;
+    margin-right: 18px;
+    margin-left: 15px;
+}
+.input-wrapper input:focus {
+    outline: none;
+}
+.input-wrapper button.submit {
+    border: none;
+    background-color: #142266;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 300;
+    padding: 8px 16px;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.completed-todo-wrapper {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+}
+.completed-todo-wrapper h1 {
+    color: #142266;
+}
+.completed-todo-wrapper .wrapper {
+    border: none;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0;
+}
+.completed-todo-wrapper .tick-wrapper {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    border-radius: 50%;
+    border: 2px solid #06c692;
+}
+.completed-todo-wrapper .tick-wrapper img {
+    display: block;
+    margin: auto;
+}
+.completed-todo-wrapper .wrapper h4{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 25px;
+    color:#06c692;
+}
+
+.completed-todo-wrapper .wrapper  img.revert {
+    margin: 0 50px 0 360px;
+    cursor:pointer;
+}
+.completed-todo-wrapper .wrapper img.delete {
+    /* position: absolute;
+    right: 0; */
+    cursor: pointer;
+}
+/* .completed-todo-wrapper .wrapper {} */
+
+button{
+    background: none;
+    border: none;
+}
