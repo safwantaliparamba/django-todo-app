@@ -13,9 +13,9 @@ def index(request):
 
 def addNewTodo(request):
     if request.method == 'POST':
-        requestObj = request.POST
-        newTodo = Todo.objects.create(task=requestObj['todo'])
-        print(newTodo)
+        todo = request.POST['todo']
+        if not todo == '':
+            newTodo = Todo.objects.create(task=todo)
         return redirect('/')
 
     return redirect('/')
